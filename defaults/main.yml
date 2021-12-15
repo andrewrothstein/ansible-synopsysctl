@@ -1,0 +1,16 @@
+---
+# defaults file for synopsysctl
+synopsysctl_ver: 2.1.3
+synopsysctl_mirror: https://github.com/blackducksoftware/synopsysctl/releases/download
+synopsysctl_os: linux
+synopsysctl_arch: amd64
+synopsysctl_parent_install_dir: /usr/local
+synopsysctl_checksums:
+  # https://github.com/blackducksoftware/synopsysctl/releases/download/v2.1.3/CHECKSUM
+  '2.1.3':
+    # https://github.com/blackducksoftware/synopsysctl/releases/download/v2.1.3/synopsysctl-darwin-amd64-2.1.3.zip
+    darwin-amd64: sha256:fe196e20c71f5ea43e67d8b7b598d68249ab67bf5782dfc6d0e946158f1aae16
+    # https://github.com/blackducksoftware/synopsysctl/releases/download/v2.1.3/synopsysctl-linux-amd64-2.1.3.tar.gz
+    linux-amd64: sha256:4de830b54513ceac57396c13cb4103ca3a0ff5451096e0cbe44de71e0dd6bcb5
+    # https://github.com/blackducksoftware/synopsysctl/releases/download/v2.1.3/synopsysctl-windows-amd64-2.1.3.zip
+    windows-amd64: sha256:eb4404ec1a9512500d26ba8b1dc2efae34b92716956e6e538257f08561dee2ee
