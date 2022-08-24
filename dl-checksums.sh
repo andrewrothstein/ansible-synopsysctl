@@ -24,7 +24,7 @@ dl_ver() {
     local lchecksums=$DIR/synopsysctl-${ver}-checksums
     if [ ! -e $lchecksums ];
     then
-        wget -q -O $lchecksums $url
+        curl -sSlf -o $lchecksums $url
     fi
 
     printf "  # %s\n" $url
@@ -35,4 +35,4 @@ dl_ver() {
     dl $ver windows amd64 zip
 }
 
-dl_ver ${1:-2.1.3}
+dl_ver ${1:-3.0.1}
