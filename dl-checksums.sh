@@ -24,7 +24,7 @@ dl_ver() {
     local lchecksums=$DIR/synopsysctl-${ver}-checksums
     if [ ! -e $lchecksums ];
     then
-        curl -sSlf -o $lchecksums $url
+        curl -sSLf -o $lchecksums $url
     fi
 
     printf "  # %s\n" $url

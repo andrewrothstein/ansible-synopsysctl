@@ -17,8 +17,8 @@ synopsysctl_checksums:
   # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.0.1/CHECKSUM
   '3.0.1':
     # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.0.1/synopsysctl-darwin-amd64-3.0.1.zip
-    darwin-amd64: sha256:
+    darwin-amd64: sha256:9da0729174323b84318283f0a58ea322eb87ea95f36ec1e9d58cb38e8e4b613f
     # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.0.1/synopsysctl-linux-amd64-3.0.1.tar.gz
-    linux-amd64: sha256:
+    linux-amd64: sha256:eea620cfa2efe9e95b7f2b11f30470057be323e5c5fc5007568ba17eb9b6fb0f
     # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.0.1/synopsysctl-windows-amd64-3.0.1.zip
-    windows-amd64: sha256:
+    windows-amd64: sha256:5cd5ef20b184164a19778d423461aa4065c01aeeb8be2c7a0f6bef658da67795
