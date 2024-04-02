@@ -1,9 +1,9 @@
 ---
 # defaults file for synopsysctl
-synopsysctl_ver: 3.0.1
+synopsysctl_ver: 3.2.0
 synopsysctl_mirror: https://github.com/blackducksoftware/synopsysctl/releases/download
-synopsysctl_os: linux
-synopsysctl_arch: amd64
+synopsysctl_arch_map:
+  x86_64: amd64
 synopsysctl_parent_install_dir: /usr/local
 synopsysctl_checksums:
   # https://github.com/blackducksoftware/synopsysctl/releases/download/v2.1.3/CHECKSUM
@@ -22,3 +22,11 @@ synopsysctl_checksums:
     linux-amd64: sha256:eea620cfa2efe9e95b7f2b11f30470057be323e5c5fc5007568ba17eb9b6fb0f
     # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.0.1/synopsysctl-windows-amd64-3.0.1.zip
     windows-amd64: sha256:5cd5ef20b184164a19778d423461aa4065c01aeeb8be2c7a0f6bef658da67795
+  # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.2.0/CHECKSUM
+  '3.2.0':
+    # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.2.0/synopsysctl-darwin-amd64-3.2.0.zip
+    darwin-amd64: sha256:92824bd8a8637348610e6d91f9fcfc8d0821d15f9ee20ef5593f228e090954a3
+    # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.2.0/synopsysctl-linux-amd64-3.2.0.tar.gz
+    linux-amd64: sha256:7932436d07e66f2bd42ef66f34935858e782392ac93a1c78c4bb6127319f0fc3
+    # https://github.com/blackducksoftware/synopsysctl/releases/download/v3.2.0/synopsysctl-windows-amd64-3.2.0.zip
+    windows-amd64: sha256:d8cf210e9de8f29da43dec7f80f0dbb9e995f042f7dcdd3291f2c188ceb79942

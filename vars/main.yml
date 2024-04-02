@@ -1,10 +1,12 @@
 ---
 # vars file for synopsysctl
+synopsysctl_os: '{{ ansible_system | lower }}'
+synopsysctl_arch: '{{ synopsysctl_arch_map[ansible_architecture] }}'
 synopsysctl_platform: '{{ synopsysctl_os }}-{{ synopsysctl_arch }}'
 synopsysctl_name: synopsysctl-{{ synopsysctl_platform }}-{{ synopsysctl_ver }}
 synopsysctl_archive: '{{ synopsysctl_name }}.{{ synopsysctl_archive_type | default("tar.gz") }}'
 synopsysctl_url: '{{ synopsysctl_mirror }}/v{{ synopsysctl_ver }}/{{ synopsysctl_archive }}'
-synopsysctl_tmp_archive: /tmp/{{ synopsysctl_archive }}
+synopsysctl_tmp_archive: '{{ synopsysctl_tmp_dir | default("/tmp") }}/{{ synopsysctl_archive }}'
 synopsysctl_install_dir: '{{ synopsysctl_parent_install_dir }}/{{ synopsysctl_name }}'
 synopsysctl_exe: '{{ synopsysctl_install_dir }}/synopsysctl'
 synopsysctl_link: '{{ synopsysctl_parent_install_dir }}/bin/synopsysctl'

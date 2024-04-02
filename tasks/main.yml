@@ -1,6 +1,9 @@
 ---
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
+    name: andrewrothstein.unarchivedeps
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -9,48 +12,49 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install in {{ synopsysctl_install_dir }}
+- name: Check for install in {{ synopsysctl_install_dir }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ synopsysctl_install_dir }}'
   changed_when: false
   register: synopsysctl_binary
-- when: not synopsysctl_binary.stat.exists
+- name: Downloading synopsysctl
+  when: not synopsysctl_binary.stat.exists
   block:
-    - name: downloading {{ synopsysctl_url }} to {{ synopsysctl_tmp_archive }}
+    - name: Downloading {{ synopsysctl_url }} to {{ synopsysctl_tmp_archive }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ synopsysctl_url }}'
         dest: '{{ synopsysctl_tmp_archive }}'
-        mode: 0644
+        mode: '644'
         checksum: '{{ synopsysctl_checksum }}'
-    - name: mkdir {{ synopsysctl_install_dir }}
+    - name: Mkdir {{ synopsysctl_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ synopsysctl_install_dir }}'
-        mode: 0755
+        mode: '755'
         state: directory
-    - name: unarchiving {{ synopsysctl_tmp_archive }} into {{ synopsysctl_install_dir }}
+    - name: Unarchiving {{ synopsysctl_tmp_archive }} into {{ synopsysctl_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ synopsysctl_tmp_archive }}'
         dest: '{{ synopsysctl_install_dir }}'
         creates: '{{ synopsysctl_exe }}'
   always:
-    - name: rm {{ synopsysctl_tmp_archive }}
+    - name: Rm {{ synopsysctl_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ synopsysctl_tmp_archive }}'
         state: absent
-- name: linking {{ synopsysctl_link }} to {{ synopsysctl_exe }}
+- name: Linking {{ synopsysctl_link }} to {{ synopsysctl_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ synopsysctl_exe }}'
     dest: '{{ synopsysctl_link }}'
     state: link
